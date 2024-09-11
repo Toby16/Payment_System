@@ -14,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],  # Allow all headers
 )
 
-from LURA import (
+from PAYMENT import (
     routes, pydantic_models,
     helper
 )

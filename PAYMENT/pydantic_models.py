@@ -7,13 +7,15 @@ class verify_paystack_payment_model(BaseModel):
     reference: str = Field(examples=["fukykuydjs"])
 
 class paystack_model(BaseModel):
-    amount: str = Field(examples=["4500"])
-    redirect_url: str = Field(examples=["https://queens-stores.vercel.app/"])
+    email: str = Field(examples=["test@example.com"])
+    redirect_url: str = Field(examples=["https://localhost.com/"])
+
 
 # FLUTTERWAVE PAYMENT
-class flutterwave_payment_pydantic_model(BaseModel):
-    amount: str = Field(examples=["3000"])
-    redirect_url: str = Field(examples=["https://queens-stores.vercel.app/"])
-
 class flutterwave_model(BaseModel):
-    amount: str = Field(examples=["450"])
+    email: str = Field(examples=["test@example.com"]) 
+    amount: str = Field(examples=["5000"])
+    currency: str = Field(examples=["NGN"])
+    redirect_url: str = Field(examples=["https://localhost.com/"])
+    first_name: str = Field(examples=["test_firstname"])
+    last_name: str = Field(examples=["test_lastname"])
