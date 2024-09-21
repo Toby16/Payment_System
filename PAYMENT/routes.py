@@ -28,7 +28,7 @@ per_dollar = 1400
 
 @app.post("/payment/paystack/weekly", status_code=status.HTTP_200_OK, tags=["PAYSTACK PAYMENT"])
 @app.post("/payment/paystack/weekly/", status_code=status.HTTP_200_OK, tags=["PAYSTACK PAYMENT"])
-def create_payment_paystack(data: paystack_model):
+def weekly_payment_paystack(data: paystack_model):
     #return PAYSTACK_SECRET_KEY
     headers = {
         "Authorization": f"Bearer {PAYSTACK_SECRET_KEY}",
@@ -66,7 +66,7 @@ def create_payment_paystack(data: paystack_model):
 
 @app.post("/payment/paystack/monthly", status_code=status.HTTP_200_OK, tags=["PAYSTACK PAYMENT"])
 @app.post("/payment/paystack/monthly/", status_code=status.HTTP_200_OK, tags=["PAYSTACK PAYMENT"])
-def create_payment_paystack(data: paystack_model):
+def monthly_payment_paystack(data: paystack_model):
     headers = {
         "Authorization": f"Bearer {PAYSTACK_SECRET_KEY}",
         "Content-Type": "application/json"
@@ -105,7 +105,7 @@ def create_payment_paystack(data: paystack_model):
 
 @app.post("/payment/paystack/biannually", status_code=status.HTTP_200_OK, tags=["PAYSTACK PAYMENT"])
 @app.post("/payment/paystack/biannually/", status_code=status.HTTP_200_OK, tags=["PAYSTACK PAYMENT"])
-def create_payment_paystack(data: paystack_model):
+def biannual_payment_paystack(data: paystack_model):
     headers = {
         "Authorization": f"Bearer {PAYSTACK_SECRET_KEY}",
         "Content-Type": "application/json"
@@ -144,7 +144,7 @@ def create_payment_paystack(data: paystack_model):
 
 @app.post("/payment/paystack/yearly", status_code=status.HTTP_200_OK, tags=["PAYSTACK PAYMENT"])
 @app.post("/payment/paystack/yearly/", status_code=status.HTTP_200_OK, tags=["PAYSTACK PAYMENT"])
-def create_payment_paystack(data: paystack_model):
+def yearly_payment_paystack(data: paystack_model):
     headers = {
         "Authorization": f"Bearer {PAYSTACK_SECRET_KEY}",
         "Content-Type": "application/json"
@@ -186,7 +186,7 @@ def create_payment_paystack(data: paystack_model):
 # [ VERIFY PAYSTACK PAYMENT ]
 @app.post("/payment/paystack/verify", status_code=status.HTTP_200_OK, tags=["PAYSTACK PAYMENT"])
 @app.post("/payment/paystack/verify/", status_code=status.HTTP_200_OK, tags=["PAYSTACK PAYMENT"])
-def verify_paystack_payment(data: verify_paystack_payment_model):
+def verify_paystack(data: verify_paystack_payment_model):
     headers = {
         "Authorization": f"Bearer {PAYSTACK_SECRET_KEY}"
     }
@@ -229,7 +229,7 @@ FLW_BASE_URL = 'https://api.flutterwave.com/v3'
 
 @app.post("/payment/flutterwave/weekly", status_code=status.HTTP_200_OK, tags=["FLUTTERWAVE PAYMENT"])
 @app.post("/payment/flutterwave/weekly/", status_code=status.HTTP_200_OK, tags=["FLUTTERWAVE PAYMENT"])
-def create_payment_flutterwave(data: flutterwave_weekly_model):
+def weekly_payment_flutterwave(data: flutterwave_weekly_model):
     headers = {
         "Authorization": f"Bearer {FLW_SECRET_KEY}",
         "Content-Type": "application/json"
@@ -295,7 +295,7 @@ def create_payment_flutterwave(data: flutterwave_weekly_model):
 
 @app.post("/payment/flutterwave/monthly", status_code=status.HTTP_200_OK, tags=["FLUTTERWAVE PAYMENT"])
 @app.post("/payment/flutterwave/monthly/", status_code=status.HTTP_200_OK, tags=["FLUTTERWAVE PAYMENT"])
-def create_payment_flutterwave(data: flutterwave_monthly_model):
+def monthly_payment_flutterwave(data: flutterwave_monthly_model):
     headers = {
         "Authorization": f"Bearer {FLW_SECRET_KEY}",
         "Content-Type": "application/json"
@@ -361,7 +361,7 @@ def create_payment_flutterwave(data: flutterwave_monthly_model):
 
 @app.post("/payment/flutterwave/biannually", status_code=status.HTTP_200_OK, tags=["FLUTTERWAVE PAYMENT"])
 @app.post("/payment/flutterwave/biannually/", status_code=status.HTTP_200_OK, tags=["FLUTTERWAVE PAYMENT"])
-def create_payment_flutterwave(data: flutterwave_biannual_model):
+def biannual_payment_flutterwave(data: flutterwave_biannual_model):
     headers = {
         "Authorization": f"Bearer {FLW_SECRET_KEY}",
         "Content-Type": "application/json"
@@ -426,7 +426,7 @@ def create_payment_flutterwave(data: flutterwave_biannual_model):
 
 @app.post("/payment/flutterwave/yearly", status_code=status.HTTP_200_OK, tags=["FLUTTERWAVE PAYMENT"])
 @app.post("/payment/flutterwave/yearly/", status_code=status.HTTP_200_OK, tags=["FLUTTERWAVE PAYMENT"])
-def create_payment_flutterwave(data: flutterwave_yearly_model):
+def yearly_payment_flutterwave(data: flutterwave_yearly_model):
     headers = {
         "Authorization": f"Bearer {FLW_SECRET_KEY}",
         "Content-Type": "application/json"
@@ -488,3 +488,5 @@ def create_payment_flutterwave(data: flutterwave_yearly_model):
         "message": "Payment created successfully",
         "data": (response.json())["data"]
     }
+
+
