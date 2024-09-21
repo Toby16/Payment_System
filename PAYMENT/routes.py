@@ -271,7 +271,8 @@ def create_payment_flutterwave(data: flutterwave_model):
         "customizations": {
             "title": "Test Inc.",
             "logo": "https://luravpn.nyc3.digitaloceanspaces.com/country_icon/.misc/1731.png"
-        }
+        },
+        "payment_plan": "127448"
     }
 
 
