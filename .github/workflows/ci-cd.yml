@@ -1,0 +1,23 @@
+name: Deploy to PAYMENT System
+
+on:
+  push:
+    branches:
+      - Toby
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.PAYMENT_HOST}}
+          username: ${{secrets.PAYMENT_USERNAME}}
+          key: ${{secrets.PAYMENT_KEY}}
+          script: |
+            echo 'PAYMENT Deployment triggered!'
+            cd /root/.app/Payment_System
+            git pull origin Toby
+            systemctl restart payment.service nginx.service
+            echo 'Deployment successful!'
